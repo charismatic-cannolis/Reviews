@@ -46,11 +46,6 @@ CREATE TABLE "characteristic_reviews" (
   "rating" integer NOT NULL
 );
 
-
-ALTER TABLE "reviews_photos" ADD FOREIGN KEY ("review_id") REFERENCES "reviews" ("id");
-ALTER TABLE "characteristic_reviews" ADD FOREIGN KEY ("characteristic_id") REFERENCES "characteristics" ("id");
-ALTER TABLE "characteristic_reviews" ADD FOREIGN KEY ("review_id") REFERENCES "reviews" ("id");
-
 COPY "reviews"
 FROM '/home/parker/hackreactor/ratingsAndReviews/reviews.csv'
 DELIMITER ','
@@ -70,3 +65,12 @@ COPY "characteristic_reviews"
 FROM '/home/parker/hackreactor/ratingsAndReviews/characteristic_reviews.csv'
 DELIMITER ','
 CSV HEADER;
+
+ALTER TABLE "reviews_photos" ADD FOREIGN KEY ("review_id") REFERENCES "reviews" ("id");
+ALTER TABLE "characteristic_reviews" ADD FOREIGN KEY ("characteristic_id") REFERENCES "characteristics" ("id");
+ALTER TABLE "characteristic_reviews" ADD FOREIGN KEY ("review_id") REFERENCES "reviews" ("id");
+
+
+
+
+
